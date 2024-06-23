@@ -535,6 +535,15 @@ public class HomeTestCase extends Initiation {
         homePage.navigateToProjectsPage();
     }
 
+    @Test
+    public void testNavigateToEmployeesPage() throws Exception {
+        loginPage = new LoginPage(driver);
+        loginPage.loginSuccess("admin_example", "123456");
+        Thread.sleep(Duration.ofSeconds(2));
+        homePage = new HomePage(driver);
+        homePage.navigateToEmployeesPage();
+    }
+
     @AfterClass
     public void afterTest() throws Exception {
         Close();

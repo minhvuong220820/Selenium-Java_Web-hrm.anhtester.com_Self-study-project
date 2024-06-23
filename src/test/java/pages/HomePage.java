@@ -112,6 +112,7 @@ public class HomePage {
 
     private By homePageAttendanceButtonLocator = By.xpath("//span[normalize-space()='Attendance']");
     private By homePageProjectsButtonLocator = By.xpath("//span[normalize-space()='Projects']");
+    private By homePageEmployeesButtonLocator = By.xpath("//span[normalize-space()='Employees']");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -1386,4 +1387,15 @@ public class HomePage {
         assertTrue(driver.getTitle().contains("Projects | HRM | Anh Tester Demo"), "Chuyen huong den trang projects that bai.");
     }
 
+    public void navigateToEmployeesPage() throws Exception {
+        WebElement homePageEmployeesButton = driver.findElement(homePageEmployeesButtonLocator);
+
+        assertTrue(homePageEmployeesButton.isDisplayed(), "Button Employees ko duoc hien thi.");
+
+        homePageEmployeesButton.click();
+
+        Thread.sleep(Duration.ofSeconds(1));
+
+        assertTrue(driver.getTitle().contains("Employees | HRM | Anh Tester Demo"), "Chuyen huong den trang employees that bai.");
+    }
 }
